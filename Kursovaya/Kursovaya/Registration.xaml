@@ -1,0 +1,74 @@
+﻿<Window x:Class="Kursovaya.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FontSize="18" FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" 
+        mc:Ignorable="d" Height="675" Width="875">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.22*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#07BF96" Padding="30" CornerRadius="25 0 0 25">
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="img.png" Margin="0 0 0 40" Width="160" Height="160"/>
+                <TextBlock TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Text="Зарегистрируйтесь," Foreground="#ffffff"/>
+                <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Margin="0 20 0 20" Foreground="#ffffff" Text="чтобы пользоваться всеми возможностями приложения"/>
+            </StackPanel>
+
+        </Border>
+        <Border Background="#FDFDFD" CornerRadius="90" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="90" Width="90" Margin="126,0,140,31">
+            <Grid>
+                <Ellipse Width="90" Height="90" StrokeThickness="4" ></Ellipse>
+                <materialDesign:PackIcon Kind="ChevronRight" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <materialDesign:PackIcon.Style>
+                        <Style TargetType="materialDesign:PackIcon">
+                            <Setter Property="Foreground" Value="#07BF96" />
+                        </Style>
+                    </materialDesign:PackIcon.Style>
+                </materialDesign:PackIcon>
+            </Grid>
+        </Border>
+
+
+        <Border Grid.Column="1" Background="#ffffff" CornerRadius="0 10 10 0">
+            <Grid>
+
+                <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3"  MouseUp="PackIcon_MouseUp_1"/>
+                <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+
+                <StackPanel VerticalAlignment="Center" Margin="64,43,34,0" Height="572">
+                    <TextBox Name="fam" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Фамилия" Text="Петров" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Name="imya" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Имя" Text="Петр" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Name="otchestvo" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Отчество" Text="Сергеевич" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <DatePicker Name="databirth" BorderThickness="0 0 0 1.5"  BorderBrush="#C5C8CC" materialDesign:HintAssist.Hint="Дата рождения" materialDesign:HintAssist.FloatingOffset="0,-18" Text="05.05.1975" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <TextBox Name="adres" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Адрес" Text="г.Москва" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBox Name="seria" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Серия"  Text="2467"  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                        <TextBox  Name="nomer" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Номер" Text="1234"  Margin="8 0 0 0"  VerticalAlignment="Bottom" />
+                    </StackPanel>
+                    <TextBox Name="telephon" MaxLength="12" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Номер телефона" Text="+79997892345" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Name="pochta" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="E-mail" Text="petrov123@mail.ru" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Name="login" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Логин" Text="John.Doe_am" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <PasswordBox Name="password" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Пароль" Password="1234567890" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+
+                    <CheckBox Name="yesorno" Margin="0 10 0 20" FontSize="13">
+                        <TextBlock>
+                            <Run Foreground="#b6b6b6">Регистрируясь, я соглашаюсь с</Run>
+                            <Run Foreground="#07BF96">условиями</Run>
+                        </TextBlock>
+                    </CheckBox>
+
+                    <Button Content="Зарегистрироваться" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Click="Button_Click"/>
+           
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

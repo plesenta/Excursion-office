@@ -1,0 +1,229 @@
+﻿<Window x:Class="Kursovaya.MenuTuragent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FontSize="18" FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" 
+        mc:Ignorable="d" Height="675" Width="875">
+    <Grid Margin="20">
+        <materialDesign:Card>
+            <TabControl Width="auto" VerticalContentAlignment="Top" materialDesign:ColorZoneAssist.Mode="PrimaryMid"  Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                <TabItem Height="auto" Width="auto">
+                    <TabItem.Header>
+                        <StackPanel  Width="auto" Height="auto">
+                            <materialDesign:PackIcon  Width="24" Height="24" HorizontalAlignment="Center" Kind="ApplicationEditOutline" />
+                            <TextBlock HorizontalAlignment="Center" Text="Заявки" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3" MouseUp="Border_MouseDown" />
+                        <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+                        <StackPanel VerticalAlignment="Center" Margin="10,52,14,270" Height="313">
+                            <DataGrid Name="zayavka" HorizontalAlignment="Center" Height="302" Margin="0,10,5,0" VerticalAlignment="Top" Width="717"  Foreground="Black"  CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseUp="zayavka_MouseUp"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,365,20,214">
+                            <ComboBox Name="client" BorderThickness="0 0 0 1" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Клиент" Text=""  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                            <ComboBox Name="status" BorderThickness="0 0 0 1" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Статус" Text=""  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <ComboBox Name="sotr" BorderThickness="0 0 0 1" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Сотрудник" Text=""  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <ComboBox Name="tur" BorderThickness="0 0 0 1" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Тур" Text=""  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,493,20,86">
+                            <TextBox  Name="kolvo" BorderThickness="0 0 0 1" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Кол-во билетов"  Text="2"  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox Name="fio" BorderThickness="0 0 0 1" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="ФИО попутчиков"  Text="Жиров П.А, Люблин А.Г"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="itog" BorderThickness="0 0 0 1" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Итоговая сумма"  Text="10000"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,421,0,158">
+                            <DatePicker  Name="oform" BorderThickness="0 0 0 1.5"  BorderBrush="#C5C8CC" materialDesign:HintAssist.Hint="Дата оформления"  materialDesign:HintAssist.FloatingOffset="0,-18" Text="05.05.2022" materialDesign:TextFieldAssist.HasClearButton="True" Margin="0 0 0 0" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                            <DatePicker Name="otpr" BorderThickness="0 0 0 1.5"  BorderBrush="#C5C8CC" materialDesign:HintAssist.Hint="Дата отправления"  materialDesign:HintAssist.FloatingOffset="0,-18" Text="10.05.2022" materialDesign:TextFieldAssist.HasClearButton="True" Margin="10 0 0 0" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                            <DatePicker  Name="pribit" BorderThickness="0 0 0 1.5"  BorderBrush="#C5C8CC" materialDesign:HintAssist.Hint="Дата прибытия"  materialDesign:HintAssist.FloatingOffset="0,-18" Text="13.05.2022" materialDesign:TextFieldAssist.HasClearButton="True" Margin="10 0 0 0" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="0,554,0,0">
+                            <Button Content="Изменить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="200 0 0 0" Click="Button_Click_9"/>
+                            <Button Content="Удалить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0"  Click="Button_Click_10"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Width="89">
+                    <TabItem.Header>
+                        <StackPanel  Width="auto"  Height="auto">
+                            <materialDesign:PackIcon  Width="24"  Height="24" HorizontalAlignment="Center" Kind="Bank" />
+                            <TextBlock   HorizontalAlignment="Center"  Text="Памятники" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3" MouseUp="Border_MouseDown" />
+                        <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+                        <StackPanel VerticalAlignment="Center" Margin="10,52,14,219" Height="364">
+                            <DataGrid Name="dostoprimechatelnost" HorizontalAlignment="Center" Height="321" Margin="0,10,5,0" VerticalAlignment="Top" Width="717"  Foreground="Black"  CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseUp="dostoprimechatelnost_MouseUp"/>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,421,0,158">
+                            <TextBox Name="naimenovanie" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Наименование"  Text="Фонтам"  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                            <DatePicker Name="yearbuild" BorderThickness="0 0 0 1.5"  BorderBrush="#C5C8CC" materialDesign:HintAssist.Hint="Дата основания"  materialDesign:HintAssist.FloatingOffset="0,-18" Text="05.05.1975" materialDesign:TextFieldAssist.HasClearButton="True" Margin="10 0 0 0" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                            <TextBox  Name="description" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Описание" Text="Красивый культурный объект"  Margin="8 0 0 0"  VerticalAlignment="Bottom" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="0,512,0,42">
+                            <Button Content="Добавить" HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="140 0 0 0" Click="add_dostoprimechatelnost"/>
+                            <Button Content="Изменить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="readd_dostoprimechatelnost"/>
+                            <Button Content="Удалить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0"  Click="remove_dostoprimechatelnost"/>
+                        </StackPanel>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Width="86">
+                    <TabItem.Header>
+                        <StackPanel  Width="auto"  Height="auto">
+                            <materialDesign:PackIcon   Width="24"   Height="24"  HorizontalAlignment="Center"  Kind="MapMarkerOutline" />
+                            <TextBlock  HorizontalAlignment="Center"   Text="Места" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3" MouseUp="Border_MouseDown" />
+                        <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+                        <StackPanel VerticalAlignment="Center" Margin="10,52,14,219" Height="364">
+                            <DataGrid Name="places" HorizontalAlignment="Center" Height="321" Margin="0,10,5,0" VerticalAlignment="Top" Width="717"  Foreground="Black"  CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseUp="places_MouseUp"/>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,421,0,158">
+                            <TextBox  Name="mestopoloshzh" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Местоположение"  Text="г.Москва"  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox   Name="klimat" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Климат" Text="Континентальный"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox   Name="yslovie" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Условия" Text="Дождливо"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,490,10,102">
+                            <ComboBox Name="dostp" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Наименование" Text="Кремль"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="0,551,0,3">
+                            <Button Content="Добавить" HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="140 0 0 0" Click="Button_Click_6"/>
+                            <Button Content="Изменить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_7"/>
+                            <Button Content="Удалить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_8"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Width="88">
+                    <TabItem.Header>
+                        <StackPanel  Width="auto"  Height="auto">
+                            <materialDesign:PackIcon  Width="24"    Height="24"   HorizontalAlignment="Center"   Kind="AccountTieOutline" />
+                            <TextBlock  HorizontalAlignment="Center"    Text="Гиды" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3" MouseUp="Border_MouseDown" />
+                        <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+                        <StackPanel VerticalAlignment="Center" Margin="10,52,14,219" Height="364">
+                            <DataGrid Name="gid" HorizontalAlignment="Center" Height="321" Margin="0,10,5,0" VerticalAlignment="Top" Width="717"  Foreground="Black"  CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseUp="gid_MouseUp"/>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,421,0,158">
+                            <TextBox Name="fam" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Фамилия"  Text="Дуров"  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="imya" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Имя" Text="Илья"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="otche" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Отчество" Text="Игоревич"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="lang" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Знание языков" Text="Английский"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="city" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Город" Text="г.Москва"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="0,512,0,42">
+                            <Button Content="Добавить" HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="140 0 0 0" Click="Button_Click_3"/>
+                            <Button Content="Изменить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_4"/>
+                            <Button Content="Удалить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_5"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Width="88">
+                    <TabItem.Header>
+                        <StackPanel  Width="auto"  Height="auto">
+                            <materialDesign:PackIcon  Width="24"    Height="24"   HorizontalAlignment="Center"   Kind="TrainCar" />
+                            <TextBlock  HorizontalAlignment="Center"    Text="Транспорт" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3" MouseUp="Border_MouseDown" />
+                        <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+                        <StackPanel VerticalAlignment="Center" Margin="10,52,14,219" Height="364">
+                            <DataGrid Name="transport" HorizontalAlignment="Center" Height="321" Margin="0,10,5,0" VerticalAlignment="Top" Width="717"  Foreground="Black"  CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseUp="transport_MouseUp"/>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,421,0,158">
+                            <TextBox Name="naim" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Наименование"  Text="Такси"  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="nomer" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Номер рейса" Text="10"  Margin="8 0 0 0"  VerticalAlignment="Bottom" />
+                            <materialDesign:TimePicker Name="timer" SelectedTimeFormat="Long" Is24Hours="True"  Style="{StaticResource MaterialDesignFloatingHintTimePicker}" BorderThickness="0 0 0 4" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18"  materialDesign:HintAssist.Hint="Время отправления"  Text="10:00" Margin="8 0 0 0"  VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="0,512,0,42">
+                            <Button Content="Добавить" HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="140 0 0 0" Click="Button_Click"/>
+                            <Button Content="Изменить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_1"/>
+                            <Button Content="Удалить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_2"/>
+                        </StackPanel>
+
+                    </Grid>
+
+
+                </TabItem>
+                <TabItem Width="88">
+                    <TabItem.Header>
+                        <StackPanel  Width="auto"  Height="auto">
+                            <materialDesign:PackIcon  Width="24"    Height="24"   HorizontalAlignment="Center"   Kind="Airballoon" />
+                            <TextBlock  HorizontalAlignment="Center"    Text="Туры" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3" MouseUp="Border_MouseDown" />
+                        <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+                        <StackPanel VerticalAlignment="Center" Margin="10,38,14,361" Height="236">
+                            <DataGrid Name="tuur" Height="235" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  CanUserDeleteRows="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseUp="tuur_MouseUp"></DataGrid>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,379,10,201">
+                            <TextBox  Name="naimen" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Наименование"  Text="Прогулка по Москве"  Margin="0 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="cost" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Стоимость" Text="1000"  Margin="8 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="kol" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Кол-во мест" Text="10"  Margin="8,0,0,-0.584"  VerticalAlignment="Bottom" />
+                            <ComboBox Name="mesto" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Место"  Text="Мрсква" Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <ComboBox Name="trnspt" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Транспорт" Text="Поездю"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="0,554,0,0">
+                            <Button Content="Добавить" HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="140 0 0 0" Click="Button_Click_12"/>
+                            <Button Content="Изменить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_13"/>
+                            <Button Content="Удалить"  HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" Margin="10 0 0 0" Click="Button_Click_14"/>
+                        </StackPanel>
+                        <StackPanel  Orientation="Horizontal" Margin="10,439,10,141">
+                            <ComboBox Name="gid_id" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Гид" Text="Власов"  Margin="10 0 0 0"  VerticalAlignment="Bottom" />
+                            <TextBox  Name="dur" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Длительность" Text="3 часа"  Margin="10,0,0,-0.584"  VerticalAlignment="Bottom" />
+                            <Button Content="Добавить фото" HorizontalAlignment="Center" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="Auto" Width="165" Margin="15,20,0,3" Click="Button_Click_11"></Button>
+
+                        </StackPanel>
+                        <TextBlock  x:Name="pich" Visibility="Hidden" Style="{StaticResource MaterialDesignTextBlock}"  materialDesign:HintAssist.Hint="Фото"  Text="1.jpg"  Margin="10,0,637,261"  VerticalAlignment="Bottom" TextWrapping="Wrap" TextOptions.TextHintingMode="Fixed" IsEnabled="False" />
+                        <Image Name="pp"  Height="100" Width="100" Margin="600,274,46,261"/>
+                        <StackPanel Orientation="Horizontal" Margin="6,494,14,86">
+                            <TextBox  Name="opis" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  materialDesign:HintAssist.Hint="Описание" Text="Прекрасная прогулка по Москве"  Margin="8 0 0 0"  VerticalAlignment="Bottom" />
+                        </StackPanel>
+
+                    </Grid>
+
+                </TabItem>
+
+                <TabItem Width="88">
+                    <TabItem.Header>
+                        <StackPanel  Width="auto"  Height="auto">
+                            <materialDesign:PackIcon  Width="24"    Height="24"   HorizontalAlignment="Center"   Kind="Account" />
+                            <TextBlock  HorizontalAlignment="Center"    Text="Профиль" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3" MouseUp="Border_MouseDown" />
+                        <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" VerticalAlignment="Top" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,13,34,0" Opacity="0.3" MouseUp="PackIcon_MouseUp" />
+                        <StackPanel VerticalAlignment="Center" Margin="64,43,34,0" Height="572">
+                            <TextBox x:Name="fam_sotr" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Фамилия" Text="Петров" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox Name="im_sotr" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Имя" Text="Петр" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox  Name="otch_sotr" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Отчество" Text="Сергеевич" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <DatePicker  Name="date_sotr" BorderThickness="0 0 0 1.5"  BorderBrush="#C5C8CC" materialDesign:HintAssist.Hint="Дата рождения" materialDesign:HintAssist.FloatingOffset="0,-18" Text="05.05.1975" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                            <TextBox  Name="tel_sotr" MaxLength="12" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Номер телефона" Text="+79997892345" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox Name="mail_sotr" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="E-mail" Text="petrov123@mail.ru" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <TextBox  Name="log_sotr" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Логин" Text="John.Doe_am" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            <PasswordBox  Name="passwd_sotr" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Пароль" Password="1234567890" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                            <Button Content="Сохранить" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Margin="186,100,227,0" Click="Button_Click_15"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
+
+    </Grid>
+</Window>
